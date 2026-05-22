@@ -28,7 +28,7 @@ function onRemoveAll() {
 <template>
   <div class="app">
     <header class="header">
-      <h1>BiArmor Builder</h1>
+      <h1>armor builder</h1>
     </header>
     <main class="layout">
       <aside class="nav-panel">
