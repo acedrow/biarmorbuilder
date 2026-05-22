@@ -39,7 +39,19 @@ const showRemove = computed(() => hasArmor(props.selectedSlot, props.selections)
           @click="emit('select-option', { slotId: selectedSlot, optionId: option.id })"
         >
           <img v-if="option.image" :src="option.image" :alt="option.label" class="option-img" />
-          <span class="option-label">{{ option.label }}</span>
+          <div class="option-text">
+            <span class="option-label">{{ option.label }}</span>
+            <dl v-if="option.period || option.origin" class="option-info">
+              <div v-if="option.period" class="info-row">
+                <dt>Time period</dt>
+                <dd>{{ option.period }}</dd>
+              </div>
+              <div v-if="option.origin" class="info-row">
+                <dt>Country of origin</dt>
+                <dd>{{ option.origin }}</dd>
+              </div>
+            </dl>
+          </div>
         </button>
       </li>
     </ul>
@@ -109,16 +121,52 @@ const showRemove = computed(() => hasArmor(props.selectedSlot, props.selections)
 
 .option-btn.has-image {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  text-align: center;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
 }
 
 .option-img {
-  width: 100%;
-  max-height: 120px;
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
+  object-position: left center;
+}
+
+.option-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option-info {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.option-info dt {
+  margin: 0;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.option-info dd {
+  margin: 0;
+  color: var(--text);
+  line-height: 1.4;
 }
 
 .option-btn:hover {

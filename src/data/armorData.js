@@ -76,8 +76,20 @@ export const SLOT_PARTS = {
 
 export const ARMOR_OPTIONS = {
   head: [
-    { id: 'greathelm', label: 'Greathelm', image: '/images/greathelm.png' },
-    { id: 'barbute', label: 'Barbute', image: '/images/barbute.png' },
+    {
+      id: 'greathelm',
+      label: 'Greathelm',
+      image: '/images/greathelm.png',
+      period: '12th–14th century',
+      origin: 'Western & Central Europe (e.g. Germany, England, Scotland, Switzerland)',
+    },
+    {
+      id: 'barbute',
+      label: 'Barbute',
+      image: '/images/barbute.png',
+      period: '15th century (c. 1430–1500)',
+      origin: 'Italy',
+    },
   ],
   neck: [
     { id: 'brigandine-gorget', label: 'Brigandine gorget' },
