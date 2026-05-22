@@ -1,0 +1,7 @@
+{
+  "name": "biarmorbuilder",
+  "compatibility_date": "2025-05-01",
+  "assets": {
+    "not_found_handling": "single-page-application"
+  }
+}
